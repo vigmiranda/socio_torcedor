@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.beans.ConstructorProperties;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 
 @RestController
@@ -32,6 +34,15 @@ public class CampaignController {
     public SimpleCampaign getCampaignById (@PathVariable("id") Optional<Campaign> campaign) {
 
         return this.projectionFactory.createProjection(SimpleCampaign.class, campaign.orElseThrow(CampaignNotFoundException::new));
+    }
+
+    @RequestMapping(value = "/", method= RequestMethod.GET)
+    public List<SimpleCampaign> list () {
+
+        return campaignService.list().stream()
+                .filter(c -> c.isActual())
+                .map(c -> this.projectionFactory.createProjection(SimpleCampaign.class, c))
+                .collect(Collectors.toList());
     }
 
     @RequestMapping(value = "/{id}", method= RequestMethod.DELETE)

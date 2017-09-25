@@ -64,4 +64,8 @@ public class Campaign {
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
+
+    public boolean isActual() {
+        return this.getEndDate().after(new Date());
+    }
 }
