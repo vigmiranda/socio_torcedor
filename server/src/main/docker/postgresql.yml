@@ -1,0 +1,9 @@
+version: '2'
+services:
+    teste-postgresql:
+        image: postgres:9.6.5
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=senescal
+        ports:
+            - 5432:5432

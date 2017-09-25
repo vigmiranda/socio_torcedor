@@ -1,0 +1,12 @@
+version: '2'
+services:
+    teste-app:
+        image: partner_fan
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/partner_fan
+            - SLEEP=10
+    teste-postgresql:
+        extends:
+            file: postgresql.yml
+            service: postgresql
