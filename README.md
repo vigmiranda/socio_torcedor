@@ -4,8 +4,8 @@ Após instalar o docker execute o seguinte comando.
 <br/><code>
 docker run --name postgres -e POSTGRES_PASSWORD=postgres -d -p 5432:5432 postgres
 </code><br/>
-Para roda a aplicação será necessario cria um database chamado partner_fan
-Para roda os testes de integração será necessario cria um database chamado partner_fan_test
+Para roda a aplicação será necessario cria um database chamado partner_fan<br/>
+Para roda os testes de integração será necessario cria um database chamado partner_fan_test<br/><br/>
 
 na sua IDE import o arquivo build.gradle para poder startar o server
 para rodar o client va na pasta socio_torcedor/client e execute o comando 
