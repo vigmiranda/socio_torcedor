@@ -3,7 +3,7 @@ Para executar o projeto será necessario ter um container docker com o postgres 
 Após instalar o docker execute o seguinte comando.
 <br/><code>
 docker run --name postgres -e POSTGRES_PASSWORD=postgres -d -p 5432:5432 postgres
-<code>
+</code>
 Para roda a aplicação será necessario cria um database chamado partner_fan
 Para roda os testes de integração será necessario cria um database chamado partner_fan_test
 
