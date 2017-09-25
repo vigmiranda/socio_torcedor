@@ -8,7 +8,7 @@ Para roda a aplicação será necessario cria um database chamado partner_fan<br
 Para roda os testes de integração será necessario cria um database chamado partner_fan_test<br/><br/>
 
 na sua IDE import o arquivo build.gradle para poder startar o server
-para rodar o client va na pasta socio_torcedor/client e execute o comando 
+<br/> para rodar o client va na pasta socio_torcedor/client e execute o comando 
    <br/> <code>npm install</code><br/>
 depois 
    <br/> <code>npm start</code><br/>
