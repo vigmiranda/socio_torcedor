@@ -11,12 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
-var CampaignService = /** @class */ (function () {
-    function CampaignService(http) {
+var PersonService = /** @class */ (function () {
+    function PersonService(http) {
         this.http = http;
     }
-    CampaignService.prototype.getAll = function () {
-        return this.http.get('http://localhost:8090/campaign/').map(function (response) { return response.json(); });
+    PersonService.prototype.getAll = function () {
+        return this.http.get('http://localhost:8090/person/').map(function (response) { return response.json(); });
     };
     /*
        getById(id: number) {
@@ -37,11 +37,11 @@ var CampaignService = /** @class */ (function () {
 
           // private helper methods*!/
       */
-    CampaignService.prototype.handleError = function (error) {
+    PersonService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);
     };
-    CampaignService.prototype.jwt = function () {
+    PersonService.prototype.jwt = function () {
         // create authorization header with jwt token
         var currentUser = JSON.parse(localStorage.getItem('currentUser'));
         if (currentUser && currentUser.token) {
@@ -49,11 +49,11 @@ var CampaignService = /** @class */ (function () {
             return new http_1.RequestOptions({ headers: headers });
         }
     };
-    CampaignService = __decorate([
+    PersonService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.Http])
-    ], CampaignService);
-    return CampaignService;
+    ], PersonService);
+    return PersonService;
 }());
-exports.CampaignService = CampaignService;
-//# sourceMappingURL=campaing.service.js.map
+exports.PersonService = PersonService;
+//# sourceMappingURL=person.service.js.map

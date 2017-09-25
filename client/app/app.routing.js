@@ -5,10 +5,10 @@ var index_1 = require("./home/index");
 var index_2 = require("./login/index");
 var index_3 = require("./register/index");
 var index_4 = require("./_guards/index");
-var index_5 = require("./campaign/index");
+var index_5 = require("./person/index");
 var appRoutes = [
     { path: '', component: index_1.HomeComponent, canActivate: [index_4.AuthGuard] },
-    { path: 'campaign', component: index_5.CampaignComponent },
+    { path: 'person', component: index_5.PersonComponent },
     { path: 'login', component: index_2.LoginComponent },
     { path: 'register', component: index_3.RegisterComponent },
     // otherwise redirect to home

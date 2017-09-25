@@ -6,5 +6,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./alert.service"));
 __export(require("./authentication.service"));
 __export(require("./user.service"));
-__export(require("./campaing.service"));
+__export(require("./person.service"));
 //# sourceMappingURL=index.js.map

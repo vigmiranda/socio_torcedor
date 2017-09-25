@@ -22,7 +22,7 @@ var index_4 = require("./_services/index");
 var index_5 = require("./home/index");
 var index_6 = require("./login/index");
 var index_7 = require("./register/index");
-var campaign_component_1 = require("./campaign/campaign.component");
+var person_component_1 = require("./person/person.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -38,7 +38,7 @@ var AppModule = /** @class */ (function () {
                 app_component_1.AppComponent,
                 index_2.AlertComponent,
                 index_5.HomeComponent,
-                campaign_component_1.CampaignComponent,
+                person_component_1.PersonComponent,
                 index_6.LoginComponent,
                 index_7.RegisterComponent
             ],
@@ -47,8 +47,7 @@ var AppModule = /** @class */ (function () {
                 index_4.AlertService,
                 index_4.AuthenticationService,
                 index_4.UserService,
-                index_4.CampaignService,
-                // providers used to create fake backend
+                index_4.PersonService,
                 index_1.fakeBackendProvider,
                 testing_1.MockBackend,
                 http_2.BaseRequestOptions

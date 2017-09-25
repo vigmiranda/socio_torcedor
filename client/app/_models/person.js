@@ -1,14 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Campaing = /** @class */ (function () {
-    function Campaing() {
+var Person = /** @class */ (function () {
+    function Person() {
     }
-    return Campaing;
+    return Person;
 }());
-exports.Campaing = Campaing;
+exports.Person = Person;
 var HeartClub = /** @class */ (function () {
     function HeartClub() {
     }
     return HeartClub;
 }());
-//# sourceMappingURL=campaing.js.map
+//# sourceMappingURL=person.js.map

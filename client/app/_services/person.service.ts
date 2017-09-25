@@ -4,11 +4,11 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 
 
 @Injectable()
-export class CampaignService {
+export class PersonService {
     constructor(private http: Http) { }
 
     public getAll() {
-        return this.http.get('http://localhost:8090/campaign/').map((response: Response) => response.json());
+        return this.http.get('http://localhost:8090/person/').map((response: Response) => response.json());
     }
     /*
        getById(id: number) {

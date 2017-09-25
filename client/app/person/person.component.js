@@ -10,28 +10,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var campaing_service_1 = require("../_services/campaing.service");
-var CampaignComponent = /** @class */ (function () {
-    function CampaignComponent(campaignServer) {
-        this.campaignServer = campaignServer;
-        this.campaigns = [];
-        this.loadCampaign();
+var person_service_1 = require("../_services/person.service");
+var PersonComponent = /** @class */ (function () {
+    function PersonComponent(personService) {
+        this.personService = personService;
+        this.persons = [];
+        this.loadPerson();
     }
-    CampaignComponent.prototype.ngOnInit = function () {
+    PersonComponent.prototype.ngOnInit = function () {
         console.log("chegou aqui");
     };
-    CampaignComponent.prototype.loadCampaign = function () {
+    PersonComponent.prototype.loadPerson = function () {
         var _this = this;
-        this.campaignServer.getAll().subscribe(function (campaigns) { _this.campaigns = campaigns; });
+        this.personService.getAll().subscribe(function (persons) { _this.persons = persons; });
     };
-    CampaignComponent = __decorate([
+    PersonComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            templateUrl: 'campaign.component.html'
+            templateUrl: 'person.component.html'
         }),
-        __metadata("design:paramtypes", [campaing_service_1.CampaignService])
-    ], CampaignComponent);
-    return CampaignComponent;
+        __metadata("design:paramtypes", [person_service_1.PersonService])
+    ], PersonComponent);
+    return PersonComponent;
 }());
-exports.CampaignComponent = CampaignComponent;
-//# sourceMappingURL=campaign.component.js.map
+exports.PersonComponent = PersonComponent;
+//# sourceMappingURL=person.component.js.map

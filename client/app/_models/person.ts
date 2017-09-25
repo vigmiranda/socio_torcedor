@@ -1,8 +1,8 @@
-export class Campaing {
+export class Person {
     id: number;
     name: string;
     startDate: string;
-    endDate: string;
+    email: string;
     heartClub: HeartClub;
 }
 
