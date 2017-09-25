@@ -13,7 +13,7 @@ import { routing }        from './app.routing';
 
 import { AlertComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
-import { AlertService, AuthenticationService, UserService, CampaingService } from './_services/index';
+import { AlertService, AuthenticationService, UserService, CampaignService } from './_services/index';
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
@@ -39,7 +39,7 @@ import { CampaignComponent } from "./campaign/campaign.component";
         AlertService,
         AuthenticationService,
         UserService,
-        CampaingService,
+        CampaignService,
 
         // providers used to create fake backend
         fakeBackendProvider,

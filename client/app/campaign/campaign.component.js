@@ -10,18 +10,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var campaing_service_1 = require("../_services/campaing.service");
 var CampaignComponent = /** @class */ (function () {
-    function CampaignComponent() {
+    function CampaignComponent(campaignServer) {
+        this.campaignServer = campaignServer;
+        this.campaigns = [];
+        this.loadCampaign();
     }
     CampaignComponent.prototype.ngOnInit = function () {
         console.log("chegou aqui");
+    };
+    CampaignComponent.prototype.loadCampaign = function () {
+        var _this = this;
+        this.campaignServer.getAll().subscribe(function (campaigns) { _this.campaigns = campaigns; });
     };
     CampaignComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             templateUrl: 'campaign.component.html'
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [campaing_service_1.CampaignService])
     ], CampaignComponent);
     return CampaignComponent;
 }());

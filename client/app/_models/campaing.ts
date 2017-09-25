@@ -3,4 +3,10 @@ export class Campaing {
     name: string;
     startDate: string;
     endDate: string;
+    heartClub: HeartClub;
+}
+
+
+class HeartClub {
+    name: string;
 }

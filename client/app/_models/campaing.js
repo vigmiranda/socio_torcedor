@@ -6,4 +6,9 @@ var Campaing = /** @class */ (function () {
     return Campaing;
 }());
 exports.Campaing = Campaing;
+var HeartClub = /** @class */ (function () {
+    function HeartClub() {
+    }
+    return HeartClub;
+}());
 //# sourceMappingURL=campaing.js.map

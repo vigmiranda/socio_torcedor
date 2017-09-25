@@ -47,7 +47,7 @@ var AppModule = /** @class */ (function () {
                 index_4.AlertService,
                 index_4.AuthenticationService,
                 index_4.UserService,
-                index_4.CampaingService,
+                index_4.CampaignService,
                 // providers used to create fake backend
                 index_1.fakeBackendProvider,
                 testing_1.MockBackend,

@@ -1,5 +1,15 @@
-<!--
-<li *ngFor="let campaign of campaigns">
-    {{campaign.name}}
-</li>-->
-<div>teste</div>
+<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+    <div class="container">
+        <ul class="nav navbar-nav" routerLinkActive="active">
+            <li class="nav-item"><a class="nav-link" routerLink="">Home</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="campaign">Campaing</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="login">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<ul>
+    <li *ngFor="let campaign of campaigns">
+        {{campaign.name}} {{campaign.heartClub.name}}
+    </li>
+</ul>

@@ -7,6 +7,7 @@ import br.com.vitor.campaign.service.CampaignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.projection.ProjectionFactory;
 import org.springframework.data.projection.SpelAwareProxyProjectionFactory;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -17,7 +18,8 @@ import java.util.stream.Collectors;
 
 
 @RestController
-@RequestMapping(value = "/campaign")
+@CrossOrigin(origins = "*")
+@RequestMapping(value = "/campaign", produces = MediaType.APPLICATION_JSON_VALUE)
 public class CampaignController {
 
 
