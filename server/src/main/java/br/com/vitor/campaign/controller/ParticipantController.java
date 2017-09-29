@@ -3,6 +3,7 @@ package br.com.vitor.campaign.controller;
 import br.com.vitor.campaign.domain.Participant;
 import br.com.vitor.campaign.exception.ParticipantNotFoundException;
 import br.com.vitor.campaign.projection.SimpleParticipant;
+import br.com.vitor.campaign.service.HeartClubService;
 import br.com.vitor.campaign.service.ParticipantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.projection.ProjectionFactory;
@@ -25,11 +26,13 @@ public class ParticipantController {
 
     private final ProjectionFactory projectionFactory = new SpelAwareProxyProjectionFactory();
     private final ParticipantService participantService;
+    private final HeartClubService heartClubService;
 
     @Autowired
-    @ConstructorProperties({"participantService"})
-    public ParticipantController(ParticipantService participantService) {
+    @ConstructorProperties({"participantService", "heartClubService"})
+    public ParticipantController(ParticipantService participantService, HeartClubService heartClubService) {
         this.participantService = participantService;
+        this.heartClubService = heartClubService;
     }
 
     @RequestMapping(value = "/{id}", method= RequestMethod.GET)
@@ -52,12 +55,14 @@ public class ParticipantController {
     }
 
     @RequestMapping(method= RequestMethod.POST)
-    public void save(@RequestBody @Valid Participant participante) {
-        this.participantService.merge(participante);
+    public void save(@RequestBody @Valid Participant participant) {
+        participant.setHeartClub(heartClubService.getByName(participant.getHeartClub().getName()));
+        this.participantService.merge(participant);
     }
 
     @RequestMapping(method= RequestMethod.PUT)
-    public void update(@RequestBody @Valid Participant participante) {
-        this.participantService.merge(participante);
+    public void update(@RequestBody @Valid Participant participant) {
+        participant.setHeartClub(heartClubService.getByName(participant.getHeartClub().getName()));
+        this.participantService.merge(participant);
     }
 }

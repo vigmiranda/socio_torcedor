@@ -17,7 +17,7 @@ public class ParticipantControllerTest extends PartnerFanApplicationTest {
     private static String URL_CAMPAIGN = "/participant/{id}";
 
     @Test
-    public void getCampaignById() throws Exception {
+    public void getParticipantById() throws Exception {
         given()
                 .pathParams("id", 1)
                 .get(URL_CAMPAIGN)
@@ -28,7 +28,7 @@ public class ParticipantControllerTest extends PartnerFanApplicationTest {
     }
 
     @Test
-    public void removeCampaign() throws Exception {
+    public void removeParticipant() throws Exception {
         given()
                 .pathParams("id", 1)
                 .delete(URL_CAMPAIGN)
@@ -38,7 +38,7 @@ public class ParticipantControllerTest extends PartnerFanApplicationTest {
 
 
     @Test
-    public void saveCampaign() throws Exception {
+    public void saveParticipant() throws Exception {
 
         final Participant participant = buildParticipant("Vitor", "Botafogo");
 
@@ -58,7 +58,7 @@ public class ParticipantControllerTest extends PartnerFanApplicationTest {
 
 
     @Test
-    public void updateCampaign() throws Exception {
+    public void updateParticipant() throws Exception {
 
         final Participant participant = buildParticipant("Vitor", "Botafogo");
         participant.setId(1);
@@ -77,16 +77,16 @@ public class ParticipantControllerTest extends PartnerFanApplicationTest {
     }
 
     private Participant buildParticipant(String participantName, String heartClubName) {
-        final Participant participante = new Participant();
+        final Participant participant = new Participant();
         final HeartClub heartClub = new HeartClub();
 
         heartClub.setName(participantName);
 
-        participante.setName(heartClubName);
-        participante.setBirthday(new Date());
-        participante.setEmail("teste@email.com");
-        participante.setHeartClub(heartClub);
-        return participante;
+        participant.setName(heartClubName);
+        participant.setBirthday(new Date());
+        participant.setEmail("teste@email.com");
+        participant.setHeartClub(heartClub);
+        return participant;
     }
 
 
