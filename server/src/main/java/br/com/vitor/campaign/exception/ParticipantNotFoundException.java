@@ -4,17 +4,17 @@ import br.com.vitor.core.validator.WithArguments;
 
 import javax.persistence.EntityNotFoundException;
 
-public class CampaignNotFoundException extends EntityNotFoundException implements WithArguments {
+public class ParticipantNotFoundException extends EntityNotFoundException implements WithArguments {
 
     private final Object[] args;
 
-    public CampaignNotFoundException() {
-        super("campaign.not.found.exception");
+    public ParticipantNotFoundException() {
+        super("participant.not.found.exception");
         this.args = new Object[0];
     }
 
-    public CampaignNotFoundException(Integer id) {
-        super("campaign.not.found.exception");
+    public ParticipantNotFoundException(Integer id) {
+        super("participant.not.found.exception");
         this.args = new Object[]{id};
     }
 

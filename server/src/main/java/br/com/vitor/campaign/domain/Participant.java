@@ -8,64 +8,60 @@ import java.util.Optional;
 
 @Data
 @Entity
-@Table(name = "campaign")
-public class Participante {
+@Table(name = "participant")
+public class Participant {
 
     @Id
     @GeneratedValue
     private Integer id;
 
-
     private String name;
+
+    private String email;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "heartClub_id")
     private HeartClub heartClub;
 
-    private Date startDate;
-    private Date endDate;
+    private Date birthday;
 
     public Integer getId() {
-        return this.id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public HeartClub getHeartClub() {
-        return this.heartClub;
-    }
-
-    public Date getStartDate() {
-        return this.startDate;
-    }
-
-    public Date getEndDate() {
-        return this.endDate;
+        return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public HeartClub getHeartClub() {
+        return heartClub;
     }
 
     public void setHeartClub(HeartClub heartClub) {
         this.heartClub = heartClub;
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+    public Date getBirthday() {
+        return birthday;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
-
-    public boolean isActual() {
-        return this.getEndDate().after(new Date());
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 }

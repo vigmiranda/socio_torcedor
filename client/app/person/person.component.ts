@@ -10,7 +10,7 @@ import {Person} from "../_models/person";
 export class PersonComponent implements OnInit  {
     persons: Person[] = [];
     formActive: boolean = false;
-    newPerson: Person = new Person();
+    newPerson: Person;
 
     constructor(private personService: PersonService) {
         this.loadPerson();
@@ -25,6 +25,7 @@ export class PersonComponent implements OnInit  {
     }
 
     private activeForm() {
+        this.newPerson  = new Person();
         this.formActive = !this.formActive;
 
     }

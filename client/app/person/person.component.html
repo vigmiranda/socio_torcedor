@@ -26,15 +26,15 @@
         <form>
             <div class="form-group">
                 <label for="name">Nome</label>
-                <input type="text" [(ngModel)]="newPerson.name" class="form-control" id="name" placeholder="Nome">
+                <input type="text" [(ngModel)]="newPerson.name" name="fullName" class="form-control" id="name" placeholder="Nome">
             </div>
             <div class="form-group">
                 <label for="name">E-mail</label>
-                <input type="text" [(ngModel)]="newPerson.email" class="form-control" id="email" placeholder="E-mail">
+                <input type="text" [(ngModel)]="newPerson.email" name="email" class="form-control" id="email" placeholder="E-mail">
             </div>
             <div class="form-group">
                 <label for="name">Time do coraçao</label>
-                <input type="text" [(ngModel)]="newPerson.heartClub.name" class="form-control" id="heartClub" placeholder="Time do coraçao">
+                <input type="text" [(ngModel)]="newPerson.heartClub.name" name="heartClub" class="form-control" id="heartClub" placeholder="Time do coraçao">
             </div>
 
             <button (click)="save()" class="btn btn-default">Submit</button>

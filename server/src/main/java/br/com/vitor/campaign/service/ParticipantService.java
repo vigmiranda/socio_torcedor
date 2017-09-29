@@ -1,23 +1,24 @@
 package br.com.vitor.campaign.service;
 
 
-import br.com.vitor.campaign.domain.Campaign;
-import br.com.vitor.campaign.repository.CampaignRepository;
+import br.com.vitor.campaign.domain.Participant;
+import br.com.vitor.campaign.repository.ParticipantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
-public class CampaignService {
+public class ParticipantService {
 
     @Autowired
-    CampaignRepository campaignRepository;
+    ParticipantRepository participantRepository;
 
-    public void merge(Campaign campaign) {campaignRepository.save(campaign);}
+    public void merge(Participant participante) {
+        participantRepository.save(participante);}
 
-    public void remove(Campaign campaign) {campaignRepository.delete(campaign.getId());}
+    public void remove(Participant participante) {
+        participantRepository.delete(participante.getId());}
 
-    public List<Campaign> list() {return (List<Campaign>) campaignRepository.findAll();}
+    public List<Participant> list() {return (List<Participant>) participantRepository.findAll();}
 }

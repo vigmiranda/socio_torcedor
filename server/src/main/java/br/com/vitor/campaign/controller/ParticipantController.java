@@ -1,9 +1,9 @@
 package br.com.vitor.campaign.controller;
 
-import br.com.vitor.campaign.domain.Campaign;
-import br.com.vitor.campaign.exception.CampaignNotFoundException;
-import br.com.vitor.campaign.projection.SimpleCampaign;
-import br.com.vitor.campaign.service.CampaignService;
+import br.com.vitor.campaign.domain.Participant;
+import br.com.vitor.campaign.exception.ParticipantNotFoundException;
+import br.com.vitor.campaign.projection.SimpleParticipant;
+import br.com.vitor.campaign.service.ParticipantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.projection.ProjectionFactory;
 import org.springframework.data.projection.SpelAwareProxyProjectionFactory;
@@ -19,46 +19,45 @@ import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(value = "/campaign", produces = MediaType.APPLICATION_JSON_VALUE)
-public class CampaignController {
+@RequestMapping(value = "/participant", produces = MediaType.APPLICATION_JSON_VALUE)
+public class ParticipantController {
 
 
     private final ProjectionFactory projectionFactory = new SpelAwareProxyProjectionFactory();
-    private final CampaignService campaignService;
+    private final ParticipantService participantService;
 
     @Autowired
-    @ConstructorProperties({"campaignService"})
-    public CampaignController(CampaignService campaignService) {
-        this.campaignService = campaignService;
+    @ConstructorProperties({"participantService"})
+    public ParticipantController(ParticipantService participantService) {
+        this.participantService = participantService;
     }
 
     @RequestMapping(value = "/{id}", method= RequestMethod.GET)
-    public SimpleCampaign getCampaignById (@PathVariable("id") Optional<Campaign> campaign) {
+    public SimpleParticipant getCampaignById (@PathVariable("id") Optional<Participant> participant) {
 
-        return this.projectionFactory.createProjection(SimpleCampaign.class, campaign.orElseThrow(CampaignNotFoundException::new));
+        return this.projectionFactory.createProjection(SimpleParticipant.class, participant.orElseThrow(ParticipantNotFoundException::new));
     }
 
     @RequestMapping(value = "/", method= RequestMethod.GET)
-    public List<SimpleCampaign> list () {
+    public List<SimpleParticipant> list () {
 
-        return campaignService.list().stream()
-                .filter(c -> c.isActual())
-                .map(c -> this.projectionFactory.createProjection(SimpleCampaign.class, c))
+        return participantService.list().stream()
+                .map(c -> this.projectionFactory.createProjection(SimpleParticipant.class, c))
                 .collect(Collectors.toList());
     }
 
     @RequestMapping(value = "/{id}", method= RequestMethod.DELETE)
-    public void remove(@PathVariable("id") Optional<Campaign> campaign) {
-        this.campaignService.remove(campaign.orElseThrow(CampaignNotFoundException::new));
+    public void remove(@PathVariable("id") Optional<Participant> campaign) {
+        this.participantService.remove(campaign.orElseThrow(ParticipantNotFoundException::new));
     }
 
     @RequestMapping(method= RequestMethod.POST)
-    public void save(@RequestBody @Valid Campaign campaign) {
-        this.campaignService.merge(campaign);
+    public void save(@RequestBody @Valid Participant participante) {
+        this.participantService.merge(participante);
     }
 
     @RequestMapping(method= RequestMethod.PUT)
-    public void update(@RequestBody @Valid Campaign campaign) {
-        this.campaignService.merge(campaign);
+    public void update(@RequestBody @Valid Participant participante) {
+        this.participantService.merge(participante);
     }
 }

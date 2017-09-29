@@ -9,11 +9,11 @@ export class PersonService {
     constructor(private http: Http) { }
 
     public getAll() {
-        return this.http.get('http://localhost:8090/person/').map((response: Response) => response.json());
+        return this.http.get('http://localhost:8090/participant/').map((response: Response) => response.json());
     }
 
     create(person: Person) {
-        return this.http.post('http://localhost:8090/person/', person).map((response: Response) => response.json());
+        return this.http.post('http://localhost:8090/participant/', person).map((response: Response) => response.json());
     }
     /*
        getById(id: number) {

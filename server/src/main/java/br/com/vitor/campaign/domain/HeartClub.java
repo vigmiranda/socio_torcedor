@@ -17,7 +17,7 @@ public class HeartClub {
     private String name;
 
     @OneToMany(mappedBy = "heartClub", fetch = FetchType.LAZY)
-    private List<Campaign> campaigns;
+    private List<Participant> participantes;
 
     public Integer getId() {
         return this.id;
@@ -27,8 +27,8 @@ public class HeartClub {
         return this.name;
     }
 
-    public List<Campaign> getCampaigns() {
-        return this.campaigns;
+    public List<Participant> getParticipantes() {
+        return this.participantes;
     }
 
     public void setId(Integer id) {
@@ -39,7 +39,7 @@ public class HeartClub {
         this.name = name;
     }
 
-    public void setCampaigns(List<Campaign> campaigns) {
-        this.campaigns = campaigns;
+    public void setParticipantes(List<Participant> participantes) {
+        this.participantes = participantes;
     }
 }

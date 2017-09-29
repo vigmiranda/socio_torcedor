@@ -17,7 +17,6 @@ var PersonComponent = /** @class */ (function () {
         this.personService = personService;
         this.persons = [];
         this.formActive = false;
-        this.newPerson = new person_1.Person();
         this.loadPerson();
     }
     PersonComponent.prototype.ngOnInit = function () {
@@ -27,6 +26,7 @@ var PersonComponent = /** @class */ (function () {
         this.personService.getAll().subscribe(function (persons) { _this.persons = persons; });
     };
     PersonComponent.prototype.activeForm = function () {
+        this.newPerson = new person_1.Person();
         this.formActive = !this.formActive;
     };
     PersonComponent.prototype.save = function () {

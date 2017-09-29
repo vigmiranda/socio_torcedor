@@ -1,8 +1,8 @@
 package br.com.vitor.controller;
 
 import br.com.vitor.PartnerFanApplicationTest;
-import br.com.vitor.campaign.domain.Campaign;
 import br.com.vitor.campaign.domain.HeartClub;
+import br.com.vitor.campaign.domain.Participant;
 import io.restassured.http.ContentType;
 import org.apache.http.HttpStatus;
 import org.junit.Test;
@@ -12,9 +12,9 @@ import java.util.Date;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class CampaignControllerTest extends PartnerFanApplicationTest {
+public class ParticipantControllerTest extends PartnerFanApplicationTest {
 
-    private static String URL_CAMPAIGN = "/campaign/{id}";
+    private static String URL_CAMPAIGN = "/participant/{id}";
 
     @Test
     public void getCampaignById() throws Exception {
@@ -24,7 +24,7 @@ public class CampaignControllerTest extends PartnerFanApplicationTest {
                 .then()
                 .statusCode(HttpStatus.SC_OK)
                 .and()
-                .body("name", equalTo("Brasileiro"));
+                .body("name", equalTo("Vitor"));
     }
 
     @Test
@@ -40,14 +40,14 @@ public class CampaignControllerTest extends PartnerFanApplicationTest {
     @Test
     public void saveCampaign() throws Exception {
 
-        final Campaign campaign = buildCampaign("Cruzeiro", "Copa do Basil");
+        final Participant participant = buildParticipant("Vitor", "Botafogo");
 
         given()
                 .request().header("Accept", ContentType.ANY)
                 .header("Content-type", ContentType.JSON)
-                .body(campaign)
+                .body(participant)
                 .when()
-                .post("/campaign")
+                .post("/participant")
                 .then()
                 .log().headers()
                 .and()
@@ -60,14 +60,14 @@ public class CampaignControllerTest extends PartnerFanApplicationTest {
     @Test
     public void updateCampaign() throws Exception {
 
-        final Campaign campaign = buildCampaign("Cruzeiro", "Copa do Basil");
-        campaign.setId(1);
+        final Participant participant = buildParticipant("Vitor", "Botafogo");
+        participant.setId(1);
 
         given().request().header("Accept", ContentType.ANY)
                 .header("Content-type", ContentType.JSON)
-                .body(campaign)
+                .body(participant)
                 .when()
-                .put("/campaign")
+                .put("/participant")
                 .then()
                 .log().headers()
                 .and()
@@ -76,17 +76,17 @@ public class CampaignControllerTest extends PartnerFanApplicationTest {
                 .statusCode(HttpStatus.SC_OK);
     }
 
-    private Campaign buildCampaign(String campaignName, String heartClubName) {
-        final Campaign campaign = new Campaign();
+    private Participant buildParticipant(String participantName, String heartClubName) {
+        final Participant participante = new Participant();
         final HeartClub heartClub = new HeartClub();
 
-        heartClub.setName(campaignName);
+        heartClub.setName(participantName);
 
-        campaign.setName(heartClubName);
-        campaign.setStartDate(new Date());
-        campaign.setEndDate(new Date());
-        campaign.setHeartClub(heartClub);
-        return campaign;
+        participante.setName(heartClubName);
+        participante.setBirthday(new Date());
+        participante.setEmail("teste@email.com");
+        participante.setHeartClub(heartClub);
+        return participante;
     }
 
 

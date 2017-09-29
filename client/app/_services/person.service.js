@@ -16,10 +16,10 @@ var PersonService = /** @class */ (function () {
         this.http = http;
     }
     PersonService.prototype.getAll = function () {
-        return this.http.get('http://localhost:8090/person/').map(function (response) { return response.json(); });
+        return this.http.get('http://localhost:8090/participant/').map(function (response) { return response.json(); });
     };
     PersonService.prototype.create = function (person) {
-        return this.http.post('http://localhost:8090/person/', person).map(function (response) { return response.json(); });
+        return this.http.post('http://localhost:8090/participant/', person).map(function (response) { return response.json(); });
     };
     /*
        getById(id: number) {
