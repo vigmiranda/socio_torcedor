@@ -9,7 +9,7 @@ import java.util.Optional;
 @Data
 @Entity
 @Table(name = "campaign")
-public class Campaign {
+public class Participante {
 
     @Id
     @GeneratedValue
