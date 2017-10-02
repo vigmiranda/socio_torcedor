@@ -19,7 +19,7 @@ public class Participant {
 
     private String email;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "heartClub_id")
     private HeartClub heartClub;
 

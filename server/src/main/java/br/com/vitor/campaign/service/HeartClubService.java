@@ -8,6 +8,7 @@ import br.com.vitor.campaign.repository.ParticipantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -16,9 +17,9 @@ public class HeartClubService {
     @Autowired
     HeartClubRepository heartClubRepository;
 
-    public HeartClub getByName(String name) {
-        return null;
-        //return this.heartClubRepository.findHeartClubByName(name).orElse(new HeartClub());
+    public HeartClub getByName(Participant participant) {
+        return this.heartClubRepository.findByName(participant.getHeartClub().getName())
+                .orElse(new HeartClub(participant.getHeartClub().getName()));
     }
 
 }

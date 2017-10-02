@@ -16,6 +16,12 @@ public class HeartClub {
 
     private String name;
 
+    public  HeartClub(String name){
+        this.setName(name);
+    }
+
+    public  HeartClub(){}
+
     @OneToMany(mappedBy = "heartClub", fetch = FetchType.LAZY)
     private List<Participant> participantes;
 

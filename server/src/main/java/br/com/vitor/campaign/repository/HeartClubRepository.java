@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface HeartClubRepository extends PagingAndSortingRepository<Participant, Integer> {
+public interface HeartClubRepository extends PagingAndSortingRepository<HeartClub, Integer> {
 
-    Optional<HeartClub> findHeartClubByName(String name);
+    Optional<HeartClub> findByName(String name);
 
 }

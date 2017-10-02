@@ -1,5 +1,6 @@
 package br.com.vitor.campaign.controller;
 
+import br.com.vitor.campaign.domain.HeartClub;
 import br.com.vitor.campaign.domain.Participant;
 import br.com.vitor.campaign.exception.ParticipantNotFoundException;
 import br.com.vitor.campaign.projection.SimpleParticipant;
@@ -56,13 +57,13 @@ public class ParticipantController {
 
     @RequestMapping(method= RequestMethod.POST)
     public void save(@RequestBody @Valid Participant participant) {
-        participant.setHeartClub(heartClubService.getByName(participant.getHeartClub().getName()));
+        participant.setHeartClub(heartClubService.getByName(participant));
         this.participantService.merge(participant);
     }
 
     @RequestMapping(method= RequestMethod.PUT)
     public void update(@RequestBody @Valid Participant participant) {
-        participant.setHeartClub(heartClubService.getByName(participant.getHeartClub().getName()));
+        participant.setHeartClub(heartClubService.getByName(participant));
         this.participantService.merge(participant);
     }
 }
